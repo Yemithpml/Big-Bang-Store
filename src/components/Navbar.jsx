@@ -1,30 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import Search from './Search';
 
-const Navbar = () => {
-  return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <img className="h-70 w-auto" src={logo} alt="logo" />
-          </div>
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-          {/*Search */}
+  const scrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMenuOpen(false);
+  };
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto flex items-center justify-between h-16">
+        {/* Logo */}
+        <div className="flex-shrink:0 cursor-pointer" onClick={() => scrollToSection('home')}>
+          <img src={logo} alt="logo" className="h-70 w-auto" />
+        </div>
+
+        {/* Search Bar */}
+      <div className="flex-grow flex justify-center px-4">
+        <div className="w-full max-w-md">
           <Search />
-          
-          
-          {/* Navigation Links */}
-          <div className="flex space-x-10">
-            <a href="#home" className="text-gray-800 hover:text-[#b378e6] font-medium">Home</a>
-            <a href="#popular" className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</a>
-            <a href="#brands" className="text-gray-800 hover:text-[#b378e6] font-medium">Brands</a>
-          </div>
         </div>
       </div>
+
+        {/* Larger screens Nav Links */}
+        <div className="hidden lg:flex space-x-10">
+          <button onClick={() => scrollToSection('home')} className="text-gray-800 hover:text-[#b378e6] font-medium">Home</button>
+          <button onClick={() => scrollToSection('popular')} className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</button>
+          <button onClick={() => scrollToSection('new')} className="text-gray-800 hover:text-[#b378e6] font-medium">New</button>
+          <Link to="/contact" className="text-gray-800 hover:text-[#b378e6] font-medium">Contact</Link>
+        </div>
+
+        {/* Cart and Mobile Menu*/}
+        <div className="flex items-center gap-4">
+          <Link to="/cart" className="text-xl">🛒</Link>
+          <button
+            className="lg:hidden text-2xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="lg:hidden flex flex-col items-center space-y-4 mt-4 pb-6">
+          <button onClick={() => scrollToSection('home')} className="text-gray-800 hover:text-[#b378e6] font-medium">Home</button>
+          <button onClick={() => scrollToSection('popular')} className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</button>
+          <button onClick={() => scrollToSection('new')} className="text-gray-800 hover:text-[#b378e6] font-medium">New</button>
+          <Link to="/contact" className="text-gray-800 hover:text-[#b378e6] font-medium">Contact</Link>
+        </div>
+      )}
     </nav>
   );
-};
+}
 
 export default Navbar;

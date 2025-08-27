@@ -1,21 +1,29 @@
-import React from 'react'
-import Navbar from './Navbar'
-import cover from '../assets/images/cover.png'
+import React from 'react';  
+import hero from '../assets/images/hero.png';
+import homeBg from '../assets/images/homeBg.png';
 
-const Home = () => {
+function Home() {
   return (
-    <div className='relative bg-[#b378e6] w-screen h-screen overflow-hidden' >
-      <Navbar />
-      <div className='absolute top-70 left-30 text-center'>
-        <h1 className='text-[#a164a4] font-black text-6xl pb-1.5'>THE BIG <br /><span className='text-white'>BANGGG STORE</span></h1>
-        <p className='text-white pb-5'>Every Headphone you can think of!.</p>
-        <button className='bg-[#a164a4] text-white font-medium p-2 px-5 rounded-2xl'><a href="#popular">Shop Now!</a></button>
-      </div>
-      <div>
-        <img src={cover} alt="Home-img" className="absolute bottom-0 right-0 h-9/12  max-w-full max-h-full object-contain"/>
-      </div>
+    <section id="home" style={{ backgroundImage: `url(${homeBg})` }}
+ className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full lg:h-screen overflow-hidden p-6 pt-20">
+      <div className="max-w-6xl mt-10 lg:mx-auto text-center lg:text-left">
+        <h1 className="text-3xl md:text-6xl font-bold md:text-font-black text-[#a164a4] leading-tight mb-4">WELCOME TO <br /> THE BIG <br />
+        <span className="text-white">BANGGG STORE</span>
+        </h1>
+        <p className="text-white mb-6">Every Headphone you can think of!. <br />Relax you deserve it!</p>
+        <button className="bg-[#a164a4] text-white font-medium py-2 px-5 rounded-2xl hover:bg-[#a579cc] transition-colors duration-300">
+          <a href="#popular">Shop Now!</a>
+        </button>
+     </div>
+     <div className="relative flex justify-center items-center w-full h-full">
+       <img
+        src={hero}
+        alt="Home-img"
+        className="w-3/4 h-auto transition-transform duration-300 ease-in-out hover:-translate-y-2 "
+      />
     </div>
-  )
+    </section>
+  );
 }
 
-export default Home
+export default Home;
