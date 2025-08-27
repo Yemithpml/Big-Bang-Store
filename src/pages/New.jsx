@@ -1,5 +1,5 @@
 import React from 'react'
-import Ordercard from './Ordercard';
+import Ordercard from '../components/Ordercard';
 
 function New() {
     const popularHeadphones = [
@@ -11,7 +11,7 @@ function New() {
         { id: 6, name: 'Beats Studio', price: '$299' }];
 
   return (
-    <section id="new" className="min-h-screen overflow-hidden p-6 bg-gray-100">
+    <section id="new" className="min-h-screen overflow-hidden p-6 pt-20 bg-gray-100">
       <div className='text-center'>
         <h1 className='font-bold text-[#a141a4] text-4xl md:text-5xl mb-10'>NEW ARRIVALS</h1>
       </div>

@@ -1,7 +1,8 @@
 import React from "react";
 
-function Contact() {
+function Deals() {
   return (
+    <section id="deals">
     <div className="p-6 pt-20">
       <h2 className="text-2xl font-bold">Contact Us</h2>
       <form className="mt-4 space-y-4">
@@ -11,7 +12,8 @@ function Contact() {
         <button className="bg-blue-600 text-white px-4 py-2 rounded">Send</button>
       </form>
     </div>
+    </section>
   );
 }
 
-export default Contact;
+export default Deals;

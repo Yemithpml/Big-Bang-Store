@@ -1,14 +1,14 @@
 import React from 'react';
 import Home from '../components/Home';
-import New from '../components/New';
-import Popular from '../components/Popular';
+import Products from '../components/Products';
+import Footer from '../components/Footer';
 
 function Main() {
   return (
     <div>
       <Home />
-      <Popular />
-      <New />
+      <Products />
+      <Footer />
     </div>
   );
 }

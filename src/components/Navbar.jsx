@@ -36,11 +36,12 @@ function Navbar() {
       </div>
 
         {/* Larger screens Nav Links */}
-        <div className="hidden lg:flex space-x-10">
+        <div className="hidden lg:flex space-x-12">
           <button onClick={() => scrollToSection('home')} className="text-gray-800 hover:text-[#b378e6] font-medium">Home</button>
-          <button onClick={() => scrollToSection('popular')} className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</button>
-          <button onClick={() => scrollToSection('new')} className="text-gray-800 hover:text-[#b378e6] font-medium">New</button>
-          <Link to="/contact" className="text-gray-800 hover:text-[#b378e6] font-medium">Contact</Link>
+          <button onClick={() => scrollToSection('products')} className="text-gray-800 hover:text-[#b378e6] font-medium">Products</button>
+          <Link to="/popular" className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</Link>
+          <Link to="/new" className="text-gray-800 hover:text-[#b378e6] font-medium">New</Link>
+          <Link to="/deals" className="text-gray-800 hover:text-[#b378e6] font-medium">Best Deals</Link>
         </div>
 
         {/* Cart and Mobile Menu*/}
@@ -59,9 +60,10 @@ function Navbar() {
       {menuOpen && (
         <div className="lg:hidden flex flex-col items-center space-y-4 mt-4 pb-6">
           <button onClick={() => scrollToSection('home')} className="text-gray-800 hover:text-[#b378e6] font-medium">Home</button>
-          <button onClick={() => scrollToSection('popular')} className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</button>
-          <button onClick={() => scrollToSection('new')} className="text-gray-800 hover:text-[#b378e6] font-medium">New</button>
-          <Link to="/contact" className="text-gray-800 hover:text-[#b378e6] font-medium">Contact</Link>
+          <button onClick={() => scrollToSection('products')} className="text-gray-800 hover:text-[#b378e6] font-medium">Products</button>
+          <Link to="/popular" className="text-gray-800 hover:text-[#b378e6] font-medium">Popular</Link>
+          <Link to="/new" className="text-gray-800 hover:text-[#b378e6] font-medium">New</Link>
+          <Link to="/deals" className="text-gray-800 hover:text-[#b378e6] font-medium">Deals</Link>
         </div>
       )}
     </nav>

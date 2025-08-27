@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Main from './pages/Main';
-import Contact from './pages/Contact';
+import New from './pages/New';
+import Deals from './pages/Deals';
 import Cart from './pages/Cart';
+import Popular from './pages/Popular';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/popular" element={<Popular />} />
+        <Route path="/new" element={<New />} />
+        <Route path="/deals" element={<Deals />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
